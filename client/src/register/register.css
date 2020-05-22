@@ -1,0 +1,23 @@
+body {
+    background-color: #eee;
+}
+
+.centered-form {
+    background-color: #fff;
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.username-taken {
+    color: rgb(164, 145, 39) !important;
+}
+
+.logo {
+    width: 450px;
+}
