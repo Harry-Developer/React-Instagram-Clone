@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+import { createBrowserHistory } from "history";
+
+
 //Components
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,13 +14,15 @@ import Alert from 'react-bootstrap/Alert'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './landing.css';
 
-
-
 import logo from '../images/logo.png';
+
+
+const history = createBrowserHistory({forceRefresh: true});
 
 class Landing extends Component {
 
     constructor(props) {
+
         super(props)
 
         this.state = {
@@ -46,11 +51,13 @@ class Landing extends Component {
         axios.post(`http://192.168.0.20:3001/api/user/login`, { user })
         .then((response) => {
             if(response.status === 200) {
-                console.log(response);
+                localStorage.setItem("user", response.data.token);
+                history.push('/')
             }
         })
         .catch((error) => {
             // handle error
+            console.log(error)
             if(error.response.data.invalidCredentials) {
                 this.setState({ invalidCredentials: true });
             
@@ -87,6 +94,9 @@ class Landing extends Component {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password"  name="password" onChange={this.handleChange} placeholder="Password" />
+                        <Form.Text className="text-muted">
+                            <a href="/register"> Need an account? </a>
+                        </Form.Text>
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
