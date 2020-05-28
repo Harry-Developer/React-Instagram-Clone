@@ -5,7 +5,7 @@ import Landing from './landing/index';
 import Register from './register/index';
 import Feed from './feed/index';
 
-import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import PrivateRoute from './components/PrivateRoute';
 

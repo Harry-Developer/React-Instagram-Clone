@@ -47,7 +47,7 @@ class Navigation extends Component {
 
     render() {
         return(
-            <Navbar className="navbar">
+            <Navbar className="navbar navbar-fixed-top">
                 <Container>
                     <Navbar.Brand href="#home"> Instagram </Navbar.Brand>
                     <Navbar.Toggle />
